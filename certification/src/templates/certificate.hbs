@@ -1,0 +1,124 @@
+<html>
+<head>
+	<style id="page_style">
+		@page{
+			size: 1500px 920px;			
+		}
+	</style>
+
+	<style>
+		*,
+		root,
+		html,
+		body{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			-webkit-print-color-adjust: exact;
+		}
+		.content{
+			width: 1500px;
+			height: 920px;
+			background: #000;
+			margin-top: -226px;
+		}
+		.label{
+			margin-top: 176px;
+			color: greenyellow;
+			margin-left: 100px;
+			font-size: 60px;
+			font-weight: bold;
+
+		}
+		.name{
+			font-size: 28px;
+			color: white;
+			margin-left: 100px;
+			margin-top: 30px;
+
+		}
+		.logo{
+			padding: 104px;
+		}
+		.logo img{
+			width: 193px;
+		}
+
+		.title{
+			color: white;
+			height: 100px;
+			font-size: 50px;
+			margin-left: 100px;
+			margin-top: 226px;
+		}
+
+		.complete_text{
+			color: white;
+			font-size: 20px;
+			margin-left: 100px;
+			margin-top: 150px;
+			max-width: 500px;
+			text-align: left;
+			line-height: 25px;
+		}
+		.date{
+			color:blue;
+			margin-left: 44px;
+			font-size: 23px;
+		}
+
+		.uuid{
+			color: white;
+			padding-left: 0px;
+			font-size: 19px;
+			text-align: center;
+			margin-top: 10px;
+		}
+
+		.right{
+			float: right;
+			position: absolute;
+			top: 114px;
+			margin-left: 1000px;
+		}
+	</style>
+</head>
+
+	<body>
+		<div class="certificate">
+			<div class="content">
+				<div class="left">
+					<div class="title">
+						<br />
+						<span> Treinamento Web - Tokenlab </span>
+					</div>
+					<div class="label">
+						<label for=""> Certificado </label>
+					</div>
+
+					<div class="name">
+						<label for="">{{name}}</label>
+					</div>
+
+					<div class="complete_text">
+						<span>
+							Completou com sucesso o Treinamento Web da Tokenlab, tendo conhecimento em angular, nodejs, AWS, com
+							aproveitamento de {{grade}}
+						</span>
+					</div>
+				</div>
+				<div class="right">
+					<div class="logo">
+						<img src="data:image/png;base64,{{logo}}" alt="">
+					</div>
+					<div class="date">
+						<span>Data de emissão: {{date}}</span>
+					</div>
+					<div class="uuid">
+						<span>{{id}}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
