@@ -5,6 +5,7 @@ import { document } from '../utils/dynamodbClient';
 import * as fs from "fs"
 import * as Handlebars from 'handlebars';
 import * as dayjs from 'dayjs';
+import {S3} from "aws-sdk";
 
 export interface ICreateCertificate {
   id: string;
@@ -67,7 +68,7 @@ export const handle = async (event) => {
     args: chromium.args,
     defaultViewport: chromium.defaultViewport,
     executablePath: await chromium.executablePath,
-    headless: chromium.headless,
+    headless: true,
     ignoreHTTPSErrors: true,
   });
 
@@ -86,6 +87,17 @@ export const handle = async (event) => {
 
   await browser.close();
 
+
+  const s3 = new S3();
+
+
+  await s3.putObject({
+    Bucket: "mycertificatetestbucket",
+    Key:`${id}.pdf`,
+    ACL: "public-read",
+    Body: pdf,
+    ContentType: "application/pdf"
+  }).promise()
 
   return {
     statusCode: 201,
