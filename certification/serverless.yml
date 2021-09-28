@@ -25,13 +25,21 @@ custom:
       migrate: true
    
 functions:
-  hello:
+  generateCertificate:
     handler: src/functions/generateCertification.handle
     events:
       - http:
           path: /generateCertification
           method: POST
-          cors: true    
+          cors: true
+  validateCertificate:
+    handler: src/functions/verifyCertificate.handle
+    events:
+      - http:
+          path: /verifyCertificate/{id}
+          method: GET
+          cors: true
+
 
 resources:
   Resources:
